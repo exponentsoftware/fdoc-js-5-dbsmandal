@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const API_URL = 'https://restcountries.com/v3/all';
+
+    async function getApiData(url) {
+        const responce = await fetch(url);
+        var data = await responce.json()
+        var lang=[]
+
+        for (var i = 0; i < data.length; i++) {
+            var allCountries = data[i].languages
+            console.log("contriesName", allCountries)
+            lang.push(allCountries)
+        }
+        console.log(data)
+        console.log("lang", lang)
+
+
+    }
+
+    console.log(getApiData(API_URL))
+
+
+ 
+
+</script>
+
+<body>
+
+</body>
+
+</html>
